@@ -1,6 +1,6 @@
 import React from 'react'
 import {getPosts} from '../models/posts.server'
-import { useLoaderData } from '@remix-run/react';
+import { Outlet, useLoaderData } from '@remix-run/react';
 import styles from '../styles/blog.css'
 import ListadoPosts from '~/components/listado-posts';
 
@@ -28,6 +28,7 @@ function Blog() {
   return (
     <main className='contenedor'>
       <ListadoPosts posts={posts} />
+      <Outlet />
     </main>
   )
 }
