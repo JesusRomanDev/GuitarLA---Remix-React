@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {getGuitarra} from '../models/guitarras.server'
 import { Link, isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
 import styles from '../styles/guitarras.css'
@@ -65,6 +65,7 @@ export function links(){
 }
 
 function Guitarra() {
+  const [cantidad, setCantidad] = useState(0)
   const guitarra = useLoaderData();
   const {nombre, descripcion, imagen, precio} = guitarra.data[0].attributes;
   // console.log(guitarra.data[0].attributes.nombre);
@@ -79,7 +80,7 @@ function Guitarra() {
         <form className='formulario' action="">
           <label htmlFor="cantidad">Cantidad</label>
 
-          <select name="" id="cantidad">
+          <select name="" id="cantidad" onChange={e => setCantidad(Number(e.target.value))}>
             <option value="">-- Seleccione --</option>
             <option value="1">1</option>
             <option value="2">2</option>
