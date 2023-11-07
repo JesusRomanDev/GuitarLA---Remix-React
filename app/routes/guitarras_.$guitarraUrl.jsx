@@ -77,6 +77,14 @@ function Guitarra() {
       alert('Debes seleccionar una cantidad')
       return
     }
+
+    const guitarraSeleccionada = {
+      id: guitarra.data[0].id,
+      imagen: imagen.data.attributes.url,
+      nombre,
+      precio,
+      cantidad
+    }
   }
   
 
