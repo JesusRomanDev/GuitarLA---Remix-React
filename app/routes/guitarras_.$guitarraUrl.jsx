@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {getGuitarra} from '../models/guitarras.server'
-import { Link, isRouteErrorResponse, useLoaderData, useRouteError } from '@remix-run/react';
+import { Link, isRouteErrorResponse, useLoaderData, useOutletContext, useRouteError } from '@remix-run/react';
 import styles from '../styles/guitarras.css'
 
 
@@ -70,6 +70,11 @@ function Guitarra() {
   const {nombre, descripcion, imagen, precio} = guitarra.data[0].attributes;
   // console.log(guitarra.data[0].attributes.nombre);
 
+  // const data = useOutletContext();
+  // console.log(data); //esto nos imprimira lo que tenemos en el root por el ContextAPI
+  const {agregarCarrito} = useOutletContext();
+  console.log(data);
+
   const handleSubmit = e => {
     e.preventDefault()
   
@@ -85,6 +90,8 @@ function Guitarra() {
       precio,
       cantidad
     }
+
+    agregarCarrito(guitarraSeleccionada);
   }
   
 
