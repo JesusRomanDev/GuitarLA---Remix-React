@@ -73,7 +73,7 @@ function Guitarra() {
   // const data = useOutletContext();
   // console.log(data); //esto nos imprimira lo que tenemos en el root por el ContextAPI
   const {agregarCarrito} = useOutletContext();
-  console.log(data);
+  // console.log(data);
 
   const handleSubmit = e => {
     e.preventDefault()
