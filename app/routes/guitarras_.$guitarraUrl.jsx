@@ -69,6 +69,17 @@ function Guitarra() {
   const guitarra = useLoaderData();
   const {nombre, descripcion, imagen, precio} = guitarra.data[0].attributes;
   // console.log(guitarra.data[0].attributes.nombre);
+
+  const handleSubmit = e => {
+    e.preventDefault()
+  
+    if(cantidad < 1 ){
+      alert('Debes seleccionar una cantidad')
+      return
+    }
+  }
+  
+
   return (
     <main className='contenedor guitarra'>
       <img className='imagen' src={imagen.data.attributes.url} alt={`Imagen de la guitarra ${nombre}`} />
@@ -77,11 +88,11 @@ function Guitarra() {
         <p className='texto'>{descripcion}</p>
         <p className='precio'>{precio}</p>
 
-        <form className='formulario' action="">
+        <form onSubmit={handleSubmit} className='formulario' action="">
           <label htmlFor="cantidad">Cantidad</label>
 
           <select name="" id="cantidad" onChange={e => setCantidad(Number(e.target.value))}>
-            <option value="">-- Seleccione --</option>
+            <option value="0">-- Seleccione --</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
