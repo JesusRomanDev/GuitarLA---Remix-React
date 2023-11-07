@@ -36,14 +36,24 @@
     font-size: 3.2rem;
 }
 
+.select{
+    all: unset; /*esto lo que hace es eliminar todo el estilo que tiene predeterminado el select*/
+    border: 1px solid #cfcfcf;
+    text-align: center;
+    width: 50%;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
 .nombre{
     font-weight: 700;
     font-size: 2.2rem;
 }
 
-.precio{
+.producto .precio{
     font-weight: 700;
     color: var(--primary);
+    margin-top: 2rem;
 }
 
 .subtotal{
